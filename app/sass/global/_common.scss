@@ -1,0 +1,216 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+body {
+    font-family: $fontPrimary;
+    font-size: 1rem;
+    line-height: 1.1rem;
+}
+.container {
+    padding: 0 15px;
+    @media screen and (min-width: $tablet) {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+    @media screen and (min-width: $tablet-landscape) {
+        max-width: 1240px;
+    }
+}
+a {
+    text-decoration: none;
+}
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.main {
+    padding-top: 6.25rem;
+    background-image: url(../img/bg.svg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    @media screen and (min-width: $tablet) {
+        padding-top: 12.5rem;
+        background-size: 32rem;
+    }
+    @media screen and (min-width: $tablet-landscape) {
+        background-position: top center;
+    }
+}
+.overflow {
+    overflow: hidden;
+}
+.breadcrumbs {
+    padding: 2rem 0;
+    @media screen and (min-width: $tablet) {
+        padding: 2rem 1.5rem;
+    }
+    &__list {
+        display: flex;
+    }
+    &__list-item {
+        display: inline-flex;
+        align-items: center;
+        &:first-child {
+            .breadcrumbs__link {
+                color: $colorBlue;
+            }
+        }
+        &:not(:first-child)::before {
+            content: '';
+            display: inline-flex;
+            width: 8px;
+            height: 8px;
+            border: 2px solid transparent;
+            border-top-color: $colorBlue;
+            border-right-color: $colorBlue;
+            transform: rotate(45deg);
+            margin: 0 10px;
+        }
+        &:last-child {
+            .breadcrumbs__link {
+                pointer-events: none;
+            }
+        }
+    }
+    &__link {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: $colorBlack;
+        text-decoration: none;
+    }
+}
+.banner-wrapper {
+    .container {
+        padding: 0;
+    }
+}
+.banner {
+    position: relative;
+    background-image: url(../img/banner.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    @media screen and (min-width: $tablet) {
+       
+        margin: 5.875rem 0;
+    }
+    &__inner {
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and (min-width: $tablet) {
+            padding: 3.5rem 1rem;
+            max-width: 50%;
+            margin-left: auto;
+            position: relative;
+            &::after {
+                background-color: rgba($color:#0A0F22, $alpha: .5);
+                transform: matrix(-1, 0, 0, 1, 0, 0);
+                content: '';
+                display: block;
+                position: absolute;
+                width: 50%;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+    &__text {
+        color: $colorWhite;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        line-height: 1.875rem;
+        max-width: 60%;
+        z-index: 1;
+        letter-spacing: 3px;
+    }
+    &__img {
+        width: 100%;
+        object-fit: cover;
+    }
+    &__link {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid $colorWhite;
+        display: inline-flex;
+        position: relative;
+        margin-left: 5%;
+        z-index: 1;
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            content: '';
+            display: inline-flex;
+            width: 14px;
+            height: 14px;
+            border: 2px solid transparent;
+            border-top-color: $colorWhite;
+            border-right-color: $colorWhite;
+            transform: translate(-70%, -50%) rotate(45deg);
+        }
+    }
+}
+.scroll-top {
+    height: 50px;
+    width: 50px;
+    background-color: $colorBlue;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    position: fixed;
+    right: 1rem;
+    bottom: 10vh;
+    z-index: 999;
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        display: inline-flex;
+        width: 14px;
+        height: 14px;
+        border: 2px solid transparent;
+        border-top-color: $colorWhite;
+        border-right-color: $colorWhite;
+        transform: translate(-50%, -30%) rotate(-45deg);
+    }
+}
+
+// slider plugin styles fix
+
+.owl-theme {
+    .owl-nav {
+        @media screen and (min-width: $tablet-landscape) {
+            position: relative;
+            z-index: 99;
+            margin-top: -4rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            button[class*=owl-] {
+                width: 50px;
+                height: 50px;
+                background-color: rgba(0, 0, 0, .5);
+                border-radius: 50%;
+                color: $colorWhite;
+                font-size: 2rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+

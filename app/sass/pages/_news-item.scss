@@ -1,0 +1,70 @@
+.news-item {
+    &__title {
+        font-family: $fontSecondary;
+        position: relative;
+        color: $colorWhite;
+        padding: 2rem 0;
+        font-size: 1.875rem;
+        line-height: 2.125rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        .container {
+            z-index: 1;
+            position: relative;
+        }
+        &::after {
+            content: '';
+            display: block;
+            background-color: $colorBlue;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 0;
+            @media screen and (min-width: $tablet) {
+                right: 8%;
+            }
+            @media screen and (min-width: $tablet-landscape) {
+                right: 48%;
+            }
+        }
+        @media screen and (min-width: $tablet) {
+            text-align: left;
+        }
+    }
+    &__content {
+        @media screen and (min-width: $tablet) {
+            padding: 0 1.5rem;
+        }
+        
+    }
+    &__date {
+        color: $colorGray;
+        font-size: 1rem;
+        line-height: 1.375rem;
+        margin-bottom: 2rem;
+        @media screen and (min-width: $tablet) {
+            padding: 0 1.5rem;
+        }
+       
+    }
+    &__text {
+        color: $colorBlack;
+        font-size: 1rem;
+        line-height: 1.375rem;
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+    .slider-wrapper {
+        margin-bottom: 2rem;
+        @media screen and (min-width: $tablet) {
+            max-width: 670px;
+            margin: 0 auto 2rem;
+        }
+    }
+}
+.news-slider {
+    
+}

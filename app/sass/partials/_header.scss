@@ -1,0 +1,347 @@
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    transition: all .3s ease-in-out;
+    .container {
+        @media screen and (min-width: $tablet) {
+            max-width: initial;
+        }
+        @media screen and (min-width: $tablet-landscape) {
+            padding: 0 3rem;
+        }
+    }
+    &__inner {
+       
+        padding: 1rem 0;
+        transition: all .3s ease-in-out;
+        position: relative;
+        @media screen and (min-width: $tablet-landscape) {
+            padding: 2.5rem 0;
+        }
+    }
+    &.scrolled {
+        background-color: rgba($color: $colorWhite, $alpha: .75);
+        .header__inner {
+            padding: .5rem 0;
+        }
+        .header-logo__img {
+            height: 64px;
+            &-right {
+                transform: translateX(-14px);
+            }
+            &-left {
+                transform: translateX(14px);
+            }
+            &-mid {
+                transform: scale(.7) translate(21px, 17px);
+            }
+            &-letter {
+                opacity: 0;
+            }
+        }
+        @media screen and (min-width: $tablet-landscape) {
+            .menu-button {
+                top: 2.2rem;
+            }
+        }
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media screen and (min-width: $tablet) {
+            margin-bottom: 1rem;
+        }
+    }
+}
+.header-logo {
+    
+    &__img {
+        transition: all .3s ease-in-out;
+        &-left {
+            transition: all .3s ease-in-out;
+        }
+        &-right {
+            transition: all .3s ease-in-out;
+        }
+        &-mid {
+            transition: all .3s ease-in-out;
+        }
+        &-letter {
+            transition: all .3s ease-in-out;
+        }
+    }
+}
+.menu-button {
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.375rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  transition: all .3s ease-in-out;
+  @media screen and (min-width: $tablet) {
+      position: absolute;
+      right: 8rem;
+        top: 3rem;
+  }
+  @media screen and (min-width: $tablet-landscape) {
+    top: 4.5rem;
+    right: 9.2rem;
+}
+  &__item {
+      display: inline-block;
+    align-self: flex-end;
+    height: 2px;
+    width: 100%;
+    background-color: $colorBlack;
+    &-top {
+        width: 75%;
+        margin-bottom: 7px;
+        transition: all 200ms ease-in-out;
+    }
+    &-mid {
+        margin-bottom: 7px;
+
+    }
+    &-btm {
+        width: 50%;
+        transition: all 400ms ease-in-out;
+    }
+  }
+  &:hover {
+    .menu-button__item {
+        width: 100%;
+        &-top {
+            animation: menu-button-hover 1s infinite ease-in-out alternate;
+        }
+        &-mid {
+            animation: menu-button-hover 1s infinite ease-in-out alternate forwards 200ms;
+        }
+        &-btm {
+            animation: menu-button-hover 1s infinite ease-in-out alternate forwards 400ms;
+        }
+    }
+  }
+}
+
+.header-nav {
+    &__inner {
+        background-color: $colorBlue;
+        padding: 1.875rem 1.5rem;
+        position: absolute;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        transition: all.3s ease-in-out;
+        &.menu-show {
+            left: 0;
+        }
+        @media screen and (min-width: $tablet) {
+            position: static;
+            height: auto;
+            background-color: transparent;
+            display: flex;
+            padding: 0;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+    &__langs {
+        display: flex;
+        @media screen and (min-width: $tablet) {
+            display: inline-flex;
+        }
+    }
+    &__lang {
+        padding: 0;
+        margin: 0;
+        color: $colorWhite;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background-color: transparent;
+        @media screen and (min-width: $tablet) {
+            color: $colorBlack;
+            &:not(.is-active) {
+                display: none;
+            }
+        }
+        &.is-active {
+            border-color: $colorWhite;
+            @media screen and (min-width: $tablet) {
+                border-color: $colorBlue;
+            }
+        }
+    }
+    &__phones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @media screen and (min-width: $tablet) {
+            position: absolute;
+            left: 15px;
+            bottom: 0;
+        }
+        @media screen and (min-width: $tablet-landscape) {
+            left: 3rem;
+        }
+    }
+    &__phone {
+        display: inline-flex;
+        align-items: center;
+        @media screen and (min-width: $tablet) {
+            &:not(:first-child) {
+                display: none;
+            }
+            &:first-child{
+                &::before {
+                    background-image: url(../img/icons/icon-phone.svg);
+                }
+                &::after {
+                    content: '';
+                    display: inline-flex;
+                    width: 14px;
+                    height: 14px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin-left: .5rem;
+                    background-image: url(../img/icons/icon-circle.svg);
+                }
+            }
+        }
+        &::before {
+            content: '';
+            display: inline-flex;
+            width: 14px;
+            height: 14px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-right: .5rem;
+        }
+        &_ks {
+            &::before {
+                background-image: url(../img/icons/icon-ks.svg);
+            }
+        }
+        &_vf {
+            &::before {
+                background-image: url(../img/icons/icon-vf.svg);
+            }
+        }
+        &_lc {
+            &::before {
+                background-image: url(../img/icons/icon-lc.svg);
+            }
+        }
+        
+        &-text {
+            color: $colorWhite;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            padding-right: 0.5rem;
+            @media screen and (min-width: $tablet) {
+                color: $colorBlack;
+            }
+            &_lg {
+                font-size: 1.25rem;
+            }
+        }
+        
+    }
+    &__list {
+        padding: 3rem 0;
+        margin-bottom: 2.125rem;
+        @media screen and (min-width: $tablet) {
+            padding: 0;
+            margin: 0 8rem 0 0;
+            display: flex;
+            align-items: center;
+        }
+        &::after {
+            content: '';
+            display: block;
+            height: 2px;
+           width: 5rem;
+            background-color: $colorWhite;
+            margin: 0 auto;
+            @media screen and (min-width: $tablet) {
+                display: none;
+            }
+        }
+    }
+    &__list-item {
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and (min-width: $tablet) {
+            display: none;
+            margin-bottom: 0;
+            &:nth-child(1), &:nth-child(2) {
+                display: inline-flex;
+                align-self: center;
+            }
+            &:first-child {
+                margin-right: 3rem;
+            }
+        }
+    }
+    &__link {
+        color: $colorWhite;
+        font-family: $fontSecondary;
+        font-size: 1.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.625rem;
+        text-align: center;
+        @media screen and (min-width: $tablet) {
+            color: $colorBlack;
+        }
+    
+    }
+    &__close {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        width: 2rem;
+        height: 2rem;
+        color: $colorWhite;
+        font-size: 2rem;
+        background-color: transparent;
+        position: absolute;
+        top: 2rem;
+        right: .5rem;
+        @media screen and (min-width: $tablet) {
+            display: none;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 8rem;
+        }
+    }
+
+}
+
+//Animation menu-button
+@keyframes menu-button-hover {
+    0% {width: 100%}
+    
+  50% { width: 50%}
+   
+  100% {width: 100%}
+    
+}
+  
